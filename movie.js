@@ -5,9 +5,9 @@ const Key = "905f57b3";
 const ul = document.querySelector("ul");
 
 function displayMovie() {
-    if (input.value !== "") { // Si l'entrée n'est pas vide
-        ul.innerHTML = ""; // Effacez la liste actuelle avant d'afficher les nouveaux résultats de recherche
-        const URL = `http://www.omdbapi.com/?s=${input.value}&apikey=${Key}`; // URL pour récupérer les données
+    if (input.value !== "") {
+        ul.innerHTML = "";
+        const URL = `http://www.omdbapi.com/?s=${input.value}&apikey=${Key}`;
         axios.get(URL)
             .then(res => {
                 const body = res.data.Search;
@@ -44,7 +44,7 @@ function addFavorite() {
             <h3>${year}</h3>  
             <button class="btn-remove">Remove</button>  
             `;
-            ul.appendChild(liFav); // Ajoutez l'élément liFav à la liste des favoris
+            ul.appendChild(liFav);
             btn.remove();
         });
     });
@@ -61,8 +61,7 @@ function removeFavorite() {
 }
 
 favoriteBtn.addEventListener("click", () => {
-    // Affichez la liste des favoris uniquement lorsque vous appuyez sur le bouton favoriteBtn
-    ul.innerHTML = ""; // Effacez la liste actuelle avant d'afficher les favoris
+    ul.innerHTML = "";
     const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
     favorites.forEach(movie => {
         const li = document.createElement("li");
@@ -74,7 +73,7 @@ favoriteBtn.addEventListener("click", () => {
         `;
         ul.appendChild(li);
     });
-    // Après l'affichage des favoris, ajoutez les écouteurs d'événements pour les boutons de suppression
+
     removeFavorite();
 });
 
@@ -85,3 +84,4 @@ window.addEventListener("keydown", (e) => {
         displayMovie();
     }
 });
+
