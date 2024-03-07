@@ -46,11 +46,25 @@ li {
     margin: 0 10px;
     padding: 10px;
     cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f5f5f5;
+
 }
 
 
 .btn-favorite {
     padding-top: 7px;
+
+}
+
+.btn-favorite:hover {
+    background-color: #e5e5e5;
+}
+
+.btn-add {
+    padding: 1rem;
+    width: 15rem;
 }
 
 .movie {
